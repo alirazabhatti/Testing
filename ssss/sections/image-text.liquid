@@ -1,0 +1,42 @@
+<div class="clearfix">
+    <div class="container">
+        <div class="col-md-6">
+            <h2>{{section.settings.clearfixheading}}</h2>
+            <p>{{section.settings.imagetext}}</p>
+            <a href="{{section.settings.custombtn}}">{{section.settings.custom}}</a>
+        </div>
+        <div class="col-md-6"><img src="{{section.settings.clearfiximg | img_url: 'master' }}"></div>
+    </div>
+</div>
+{% schema %}
+{
+   "name": "image-text",
+   "settings": [
+       {
+           "type": "image_picker",
+           "id": "clearfiximg",
+           "label": "Image"
+       },
+       {
+           "type": "text",
+           "id": "clearfixheading",
+           "label": "Heading"
+       },
+       {
+           "type": "textarea",
+            "id": "imagetext",
+            "label": "Text"
+       },
+       {
+         "type": "text",
+         "id": "custom",
+         "label": "Button"
+       },
+       {
+         "type": "url",
+         "id": "custonlink",
+         "label": "Button link"
+       }
+   ] 
+}
+{% endschema %}}

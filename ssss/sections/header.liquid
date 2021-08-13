@@ -1,0 +1,69 @@
+<div class="announcement-bar">
+    {{ section.settings.checkbox1 }}
+    {{ section.settings.checkbox2 }}
+    {{ section.settings.bartext }}
+    {{ section.settings.barlink }}
+    {{ section.settings.barcolor }}
+    {{ section.settings.bartextcolor }}
+</div>
+<div class="logo-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="header-logo"><img src="{{ section.settings.headerlogo | img_url: 'master' }}"></div>
+            </div>
+            <div class="col-md-9">
+                <div class="header-menu">{{ section.settings.main_nav }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{   
+    "name": "Header",
+    "settings": [
+        {
+        "type": "checkbox",
+        "id": "checkbox1",
+        "label": "Show announcement"
+        },
+        {
+        "type": "checkbox",
+        "id": "checkbox2",
+        "label": "Home page only"
+        },
+        {
+        "type": "text",
+        "id": "bartext",
+        "label": "Text"
+        },
+        {
+        "type": "url",
+        "id": "barlink",
+        "label": "Link",
+        "info": "optional"
+        },
+        {
+        "type":      "color",
+        "id":        "barcolor",
+        "label":     "Bar"
+        },
+        {
+        "type":      "color",
+        "id":        "bartextcolor",
+        "label":     "Text"
+        },
+        {
+        "type": "image_picker",
+        "id": "headerlogo",
+        "label": "Logo"
+        },
+        {
+        "type": "link_list",
+        "id": "main_nav",
+        "label": "Main navigation"
+        }
+    ]
+    
+}
+{% endschema %}

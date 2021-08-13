@@ -1,0 +1,108 @@
+<style>
+    .clearfix {
+        padding-top: 50px;
+    }
+</style>
+<div class="clearfix">
+    <div class="container">
+        {% if section.settings.text_position %}
+        <div class="page-heading">
+            <h2>{{ section.settings.boxheading }}</h2>
+            <p>{{ section.settings.boxtext }}</p>
+        </div>
+        {% endif %}
+        <div class="row">
+            {% for block in section.blocks %}
+                <div class="col-md-4">
+                    {% if block.settings.catimage != blank %}
+                    <div class="catibox">
+                        <a href="{{ catimagelink }}"><img src="{{ block.settings.catimage | img_url: 'master' }}" ></a>
+                    </div>
+                    {% endif %}
+                    <div class="box-under-text">
+                        <h2>{{ block.settings.underboxheading }}</h2>
+                        <p>{{ block.settings.underboxtext }}</p>
+                        <div class="cta-btn"><a href="{{ ctalink }}"></a>{{ block.settings.catimage }}</a></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Catbox",
+    "settings": [
+        {
+            "type": "text",
+            "id": "boxheading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "boxtext",
+            "label": "Heading"
+        },
+        {
+            "type": "select",
+            "id": "text_position",
+            "label": "Text position",
+            "default": "center",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ]
+        }
+    ],
+    "blocks": [
+    {
+      "type": "image",
+      "name": "Images",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "cat_image",
+          "label": "Image"
+        },
+		{
+          "type": "text",
+          "id": "cat_image_link",
+          "label": "Slide link",
+          "default": "/collections"
+        },
+        {
+          "type": "text",
+          "id": "underboxheading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "underboxtext",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "ctabtn",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "ctalink",
+          "label": "CTA link"
+        }
+      ]
+    }
+    
+  ]
+}
+{% endschema %}
